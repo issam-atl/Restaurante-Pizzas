@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de Reserva</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #fad961;
+        background-image: linear-gradient(90deg, #fad961 0%, #f76b1c 100%);
+        margin: 0;
+        padding: 0;
+      }
+      .bgimg1 {
+        background-image: url(fotos/istockphoto-899907172-612x612.jpg);
+        background-repeat: no-repeat;
+        height: 100%;
+        background-size: cover;
+        max-width: 100%;
+      }
+      form {
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 50%;
+        color: #ffffff;
+        margin: 10% auto;
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="date"],
+      input[type="email"],
+      input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+      .btn {
+        background-color: #4caf50;
+        color: white;
+        border: 1px solid gray;
+        cursor: pointer;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 8px 15px;
+        border-radius: 20px;
+        transition: background-color 0.3s;
+      }
+      .btn:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="formulario" class="bgimg1">
+      <label for="nombre">Nombre:</label><br />
+      <input type="text" id="nombre" name="nombre" required /><br />
+      <label for="apellido">Apellido:</label><br />
+      <input type="text" id="apellido" name="apellido" required /><br />
+      <label for="email">Correo electrónico:</label><br />
+      <input type="email" id="email" name="email" required /><br />
+      <label for="fecha">Fecha de Reserva:</label><br />
+      <input type="date" id="fecha" name="fecha" required /><br />
+      <a href="index.html" class="btn" id="reservaBtn">Reservar</a>
+    </form>
+    <script type="text/javascript">
+      let btn = document.getElementById("reservaBtn");
+
+      btn.onclick = function () {
+        var nombre = document.getElementById("nombre").value;
+        var apellido = document.getElementById("apellido").value;
+        var fecha = document.getElementById("fecha").value;
+        if (nombre === "" || apellido === "" || fecha === "") {
+          alert("Por favor, complete todos los campos obligatorios.");
+          return false;
+        }
+        alert("Su reserva ha sido registrada");
+        return true;
+      };
+    </script>
+  </body>
+</html>
